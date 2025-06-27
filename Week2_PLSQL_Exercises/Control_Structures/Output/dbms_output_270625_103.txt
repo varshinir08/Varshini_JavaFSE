@@ -1,0 +1,9 @@
+1% discount applied to Customer ID: 1
+1% discount applied to Customer ID: 3
+
+Customer ID 1 promoted to VIP.
+Customer ID 3 promoted to VIP.
+
+Reminder: Dear Alice, your loan (ID: 101) is due on 07-JUL-2025
+Reminder: Dear Charlie, your loan (ID: 103) is due on 22-JUL-2025
+
