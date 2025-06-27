@@ -1,0 +1,8 @@
+Interest applied to Account ID: 201
+Interest applied to Account ID: 202
+Interest applied to Account ID: 203
+
+Bonus applied to department: Sales
+
+Transfer successful: 1000 transferred.
+
