@@ -1,0 +1,39 @@
+
+varsh@Varshini MINGW64 ~
+$ cd GitDemo
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git checkout master
+git status
+Already on 'master'
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git branch
+* master
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git pull origin master
+From https://gitlab.com/varshinir0804051/git-demo
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git push origin master
+Enumerating objects: 22, done.
+Counting objects: 100% (22/22), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (21/21), 1.96 KiB | 402.00 KiB/s, done.
+Total 21 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://gitlab.com/varshinir0804051/git-demo.git
+   11fbe32..5271097  master -> master
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$
