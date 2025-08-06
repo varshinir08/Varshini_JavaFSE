@@ -1,0 +1,46 @@
+
+varsh@Varshini MINGW64 ~
+$ cd GitDemo
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        welcome.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git add welcome.txt
+warning: in the working copy of 'welcome.txt', LF will be replaced by CRLF the next time Git touches it
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git commit
+Aborting commit due to empty commit message.
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git commit -m "Added welcome.txt file"
+[master (root-commit) 11fbe32] Added welcome.txt file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 welcome.txt
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git remote add origin https://gitlab.com/varshinir0804051/git-demo.git
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git push -u origin master
+info: please complete authentication in your browser...
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 254 bytes | 84.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://gitlab.com/varshinir0804051/git-demo.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$
