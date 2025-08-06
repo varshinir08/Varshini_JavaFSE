@@ -1,0 +1,92 @@
+
+varsh@Varshini MINGW64 ~
+$ git branch GitNewBranch
+fatal: not a git repository (or any of the parent directories): .git
+
+varsh@Varshini MINGW64 ~
+$ cd GitDemo
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git branch GitNewBranch
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git branch -a
+  GitNewBranch
+* master
+  remotes/origin/master
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git checkout GitNewBranch
+Switched to branch 'GitNewBranch'
+
+varsh@Varshini MINGW64 ~/GitDemo (GitNewBranch)
+$ echo "This is from GitNewBranch" > branchfile.txt
+
+varsh@Varshini MINGW64 ~/GitDemo (GitNewBranch)
+$ git add branchfile.txt
+git commit -m "Added branchfile.txt in GitNewBranch"
+warning: in the working copy of 'branchfile.txt', LF will be replaced by CRLF the next time Git touches it
+[GitNewBranch 90cb9a1] Added branchfile.txt in GitNewBranch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branchfile.txt
+
+varsh@Varshini MINGW64 ~/GitDemo (GitNewBranch)
+$ git status
+On branch GitNewBranch
+nothing to commit, working tree clean
+
+varsh@Varshini MINGW64 ~/GitDemo (GitNewBranch)
+$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git diff master GitNewBranch
+diff --git a/branchfile.txt b/branchfile.txt
+new file mode 100644
+index 0000000..bd667bc
+--- /dev/null
++++ b/branchfile.txt
+@@ -0,0 +1 @@
++This is from GitNewBranch
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git config --global diff.tool p4merge
+git config --global merge.tool p4merge
+git config --global mergetool.prompt false
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git difftool master GitNewBranch
+The diff tool p4merge is not available as 'p4merge'
+fatal: external diff died, stopping at branchfile.txt
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git merge GitNewBranch
+Updating 23940a1..90cb9a1
+Fast-forward
+ branchfile.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branchfile.txt
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git log --oneline --graph --decorate
+* 90cb9a1 (HEAD -> master, GitNewBranch) Added branchfile.txt in GitNewBranch
+* 23940a1 Add .gitignore to ignore logs
+* be937b4 Add .gitignore to ignore .log files and log folder
+* 11fbe32 (origin/master) Added welcome.txt file
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git branch -d GitNewBranch
+Deleted branch GitNewBranch (was 90cb9a1).
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$
