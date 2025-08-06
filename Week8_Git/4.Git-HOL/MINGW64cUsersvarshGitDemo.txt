@@ -1,0 +1,109 @@
+
+varsh@Varshini MINGW64 ~
+$ cd GitDemo
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git checkout master
+git status
+Already on 'master'
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git checkout -b GitWork
+Switched to a new branch 'GitWork'
+
+varsh@Varshini MINGW64 ~/GitDemo (GitWork)
+$ echo "<message>Hello from branch</message>" > hello.xml
+
+varsh@Varshini MINGW64 ~/GitDemo (GitWork)
+$ echo "<note>This is GitWork branch</note>" >> hello.xml
+
+varsh@Varshini MINGW64 ~/GitDemo (GitWork)
+$ git status
+git add hello.xml
+git commit -m "Add hello.xml in GitWork branch"
+On branch GitWork
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+[GitWork ad9d204] Add hello.xml in GitWork branch
+ 1 file changed, 2 insertions(+)
+ create mode 100644 hello.xml
+
+varsh@Varshini MINGW64 ~/GitDemo (GitWork)
+$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ echo "<message>Hello from master</message>" > hello.xml
+echo "<extra>This is master content</extra>" >> hello.xml
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git add hello.xml
+git commit -m "Add hello.xml in master with different content"
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+[master 6b0c83a] Add hello.xml in master with different content
+ 1 file changed, 2 insertions(+)
+ create mode 100644 hello.xml
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git log --oneline --graph --decorate --all
+* 6b0c83a (HEAD -> master) Add hello.xml in master with different content
+| * ad9d204 (GitWork) Add hello.xml in GitWork branch
+|/
+* 90cb9a1 Added branchfile.txt in GitNewBranch
+* 23940a1 Add .gitignore to ignore logs
+* be937b4 Add .gitignore to ignore .log files and log folder
+* 11fbe32 (origin/master) Added welcome.txt file
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+varsh@Varshini MINGW64 ~/GitDemo (master|MERGING)
+$ git add hello.xml
+
+varsh@Varshini MINGW64 ~/GitDemo (master|MERGING)
+$ git commit -m "Resolved conflict between master and GitWork"
+[master 28c7731] Resolved conflict between master and GitWork
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ echo "*.orig" >> .gitignore
+git add .gitignore
+git commit -m "Ignore backup files"
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+[master 5271097] Ignore backup files
+ 1 file changed, 1 insertion(+)
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git branch -d GitWork
+Deleted branch GitWork (was ad9d204).
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$ git log --oneline --graph --decorate
+* 5271097 (HEAD -> master) Ignore backup files
+*   28c7731 Resolved conflict between master and GitWork
+|\
+| * ad9d204 Add hello.xml in GitWork branch
+* | 6b0c83a Add hello.xml in master with different content
+|/
+* 90cb9a1 Added branchfile.txt in GitNewBranch
+* 23940a1 Add .gitignore to ignore logs
+* be937b4 Add .gitignore to ignore .log files and log folder
+* 11fbe32 (origin/master) Added welcome.txt file
+
+varsh@Varshini MINGW64 ~/GitDemo (master)
+$
